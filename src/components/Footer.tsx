@@ -1,0 +1,64 @@
+import { Dog, Mail, Phone, MapPin, Clock } from "lucide-react";
+
+export function Footer() {
+  return (
+    <footer className="bg-gradient-to-br from-orange-900 to-orange-800 text-orange-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-end gap-0.5">
+                <Dog className="w-5 h-5" />
+                <Dog className="w-6 h-6 -ml-2" />
+                <Dog className="w-5 h-5 -ml-2" />
+              </div>
+              <span>The Study-O</span>
+            </div>
+            <p className="text-orange-100 text-sm mb-4">
+              Where learning meets wagging tails! Empowering students with personalized tutoring, college prep, and three lovable dachshunds.
+            </p>
+            <p className="text-orange-200 text-xs italic">
+              🐾 Edna, Vincent & LONGston welcome you!
+            </p>
+          </div>
+
+          <div>
+            <h3 className="mb-4">Quick Links</h3>
+            <ul className="space-y-2 text-sm text-orange-100">
+              <li><a href="#" className="hover:text-white transition-colors">Academic Support</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Standardized Testing</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">College Admissions</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Meet Our Dogs</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="mb-4">Contact Us</h3>
+            <ul className="space-y-2 text-sm text-orange-100">
+              <li className="flex items-center gap-2">
+                <Mail className="w-4 h-4" />
+                <span>leahhughes@aol.com</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="w-4 h-4" />
+                <span>(404) 731-4524</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Clock className="w-4 h-4" />
+                <span>Sun-Wed: Noon - 9pm</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <MapPin className="w-4 h-4" />
+                <span>Atlanta, Georgia</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-orange-700 mt-8 pt-8 text-center text-sm text-orange-200">
+          <p>&copy; {new Date().getFullYear()} The Study-O. All rights reserved. 🐕🐕🐕</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
