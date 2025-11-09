@@ -1,8 +1,10 @@
+import React, { useEffect } from "react";
 import { Card, CardContent } from "./ui/card";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Dog, Heart, Award, Users, BookOpen } from "lucide-react";
 const storyImage = new URL("../assets/Story.jpeg", import.meta.url).href;
 const spaceImage2 = new URL("../assets/ef059911c1bd4739323d5a70da5ff1640e6224e2.png", import.meta.url).href;
+const threeDogs = new URL("../assets/3Dogs.jpeg", import.meta.url).href;
 const leahHeadshot = new URL("../assets/Leah.jpg", import.meta.url).href;
 const julieHeadshot = new URL("../assets/Julie.jpg", import.meta.url).href;
 const ednaImg = new URL("../assets/Edna.jpeg", import.meta.url).href;
@@ -10,6 +12,16 @@ const vincentImg = new URL("../assets/Vincent.jpeg", import.meta.url).href;
 const longstonImg = new URL("../assets/LONGston.jpeg", import.meta.url).href;
 
 export function AboutPage() {
+  useEffect(() => {
+    const id = (window.location.hash || "").replace("#", "");
+    if (!id) return;
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 0);
+  }, []);
   const team = [
     {
       name: "Professor Leah Miranda Hughes",
@@ -35,8 +47,8 @@ export function AboutPage() {
   const dachshunds = [
     {
       name: "Edna",
-      role: "The Coach 📣",
-      personality: "Encouraging • Motivating • Inspiring",
+      role: "The TSA (Test Security Administrator) 🔒",
+      personality: "Alert • Organized • Reliable",
       fact: "Edna takes her role very seriously. She ensures that study sessions stay on track and that the environment remains focused and productive. Like a coach keeping everyone organized, she makes sure students have what they need and helps maintain the structure necessary for successful learning. Her calm, attentive presence helps students feel secure and ready to tackle any academic challenge.",
       favoriteSpot: "By the desk during study sessions",
       superpower: "Creates structure and routine in study sessions",
@@ -44,8 +56,8 @@ export function AboutPage() {
     },
     {
       name: "Vincent",
-      role: "The TSA (Test Security Administrator) 🔒",
-      personality: "Alert • Organized • Reliable",
+      role: "The Coach 📣",
+      personality: "Encouraging • Motivating • Inspiring",
       fact: "Vincent is the motivational speaker of the group. He has an uncanny ability to sense when a student needs a boost of confidence. Whether you're tackling a difficult math problem or writing a college essay, he'll be right there, encouraging you every step of the way. His presence reminds students that they can accomplish anything they set their minds to!",
       favoriteSpot: "Near the entrance, keeping watch",
       superpower: "Motivates students to push through challenges",
@@ -180,7 +192,7 @@ export function AboutPage() {
                       src={member.image}
                       alt={member.name}
                       className="w-full h-full object-cover"
-                      style={member.name.includes("Leah") ? { objectPosition: "center 60%" } : undefined}
+                      style={member.name.includes("Leah") ? { objectPosition: "center 30%" } : undefined}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-gray-600">
@@ -203,7 +215,7 @@ export function AboutPage() {
       </section>
 
       {/* Dachshunds Section - MAIN FOCUS */}
-      <section className="py-20 px-4 bg-gradient-to-br from-orange-100 via-yellow-100 to-orange-100">
+      <section id="dachshunds" className="py-20 px-4 bg-gradient-to-br from-orange-100 via-yellow-100 to-orange-100">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -263,7 +275,7 @@ export function AboutPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative h-96 rounded-lg overflow-hidden shadow-xl border-4 border-orange-200">
               <ImageWithFallback
-                src={spaceImage2}
+                src={threeDogs}
                 alt="The Study-O learning space"
                 className="w-full h-full object-cover"
               />

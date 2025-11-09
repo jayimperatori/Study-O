@@ -72,10 +72,34 @@ export function NewslettersPage() {
                   </div>
 
                   {!isOpen ? (
-                    <p className="mt-4 text-gray-700">{excerpt}</p>
+                    <p className="mt-4 text-gray-700">
+                      {excerpt || "This newsletter has attachments. Click Read or open an attachment below."}
+                    </p>
                   ) : (
                     <div className="mt-6 text-gray-700">
-                      <div dangerouslySetInnerHTML={{ __html: html }} />
+                      {n.content ? (
+                        <div dangerouslySetInnerHTML={{ __html: html }} />
+                      ) : (
+                        <p className="text-gray-700">
+                          This entry contains attachments but no in-page body text.
+                        </p>
+                      )}
+                    </div>
+                  )}
+
+                  {n.attachments && n.attachments.length > 0 && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {n.attachments.map((a, i) => (
+                        <a
+                          key={i}
+                          href={a.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-orange-300 text-orange-700 hover:bg-orange-50 text-sm"
+                        >
+                          {a.type.toUpperCase()} • {a.filename}
+                        </a>
+                      ))}
                     </div>
                   )}
                 </CardContent>

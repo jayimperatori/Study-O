@@ -12,11 +12,15 @@ import {
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
 const leahHero = new URL("../assets/LeahWithDogs.jpeg", import.meta.url).href;
 const ednaImg = new URL("../assets/Edna.jpeg", import.meta.url).href;
 const vincentImg = new URL("../assets/Vincent.jpeg", import.meta.url).href;
 const longstonImg = new URL("../assets/LONGston.jpeg", import.meta.url).href;
 const leahOffice = new URL("../assets/LeahOffice.jpeg", import.meta.url).href;
+const space2 = new URL("../assets/Space2.jpeg", import.meta.url).href;
+const space3 = new URL("../assets/Space3.jpeg", import.meta.url).href;
+const space4 = new URL("../assets/Space4.jpeg", import.meta.url).href;
 
 // Prevent a single orphaned last word by binding the final two words together
 function preventWidow(text: string): string {
@@ -159,7 +163,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-orange-950 mb-4 text-h-section md:text-h-section leading-none">
+            <h2 className="text-orange-900 mb-4 heading-md md:heading-md leading-none font-normal">
               What Makes Us Special
             </h2>
           </div>
@@ -174,7 +178,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                     <feature.icon className="w-6 h-6 text-orange-600" />
                   </div>
-                  <h3 className="mb-2 text-orange-900 text-xl md:text-2xl font-semibold">
+                  <h3 className="mb-2 text-orange-900 text-lg md:text-xl font-medium">
                     {feature.title}
                   </h3>
                   <p className="text-gray-600 text-sm">
@@ -193,7 +197,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-2 mb-4">
               <Heart className="w-6 h-6 text-orange-600 fill-orange-600" />
-              <h2 className="text-orange-900 text-h-section md:text-h-section leading-none">
+              <h2 className="text-orange-900 heading-md md:heading-md leading-none font-normal">
                 Meet Our Dachshunds
               </h2>
               <Heart className="w-6 h-6 text-orange-600 fill-orange-600" />
@@ -239,7 +243,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   <h3 className="text-orange-900 mb-1">
                     {dog.name}
                   </h3>
-                  <p className="text-orange-700 text-2xl md:text-3xl font-semibold mb-3">
+                  <p className="text-orange-700 text-lg md:text-xl font-medium mb-3">
                     {dog.role}
                   </p>
                   <p className="text-gray-600 text-sm mb-2">
@@ -257,7 +261,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-orange-900 mb-6 text-h-section md:text-h-section leading-none">
+              <h2 className="text-orange-900 mb-6 heading-lg md:heading-lg leading-none font-normal">
                 A Cozy, Home-Like Learning Space
               </h2>
               <p className="text-gray-700 mb-4">
@@ -288,12 +292,36 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 Learn More About Professor Hughes
               </Button>
             </div>
-            <div className="relative h-96 rounded-lg overflow-hidden shadow-xl border-4 border-orange-200">
-              <ImageWithFallback
-                src={leahOffice}
-                alt="Leah's office at The Study-O"
-                className="w-full h-full object-cover"
-              />
+            <div className="relative rounded-lg overflow-hidden shadow-xl border-4 border-orange-200">
+              <Carousel className="w-full" opts={{ loop: true }}>
+                <CarouselContent className="h-96" style={{ marginLeft: 0 }}>
+                  {[leahOffice, space2, space3, space4].map((src, i) => (
+                    <CarouselItem
+                      key={i}
+                      className="h-96"
+                      style={{ paddingLeft: 0, flex: "0 0 100%", minWidth: "100%" }}
+                    >
+                      <ImageWithFallback
+                        src={src}
+                        alt={`Study-O space ${i + 1}`}
+                        className="w-full h-full object-cover"
+                        style={{ objectPosition: "center" }}
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious
+                  className="z-10 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-orange-700 border border-white/70 shadow"
+                  style={{ left: "0.5rem" }}
+                />
+                <CarouselNext
+                  className="z-10 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-orange-700 border border-white/70 shadow"
+                  style={{ right: "0.5rem" }}
+                />
+              </Carousel>
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/40 text-white text-xs md:text-sm px-3 py-1 rounded-full pointer-events-none">
+                Swipe to see more →
+              </div>
             </div>
           </div>
         </div>
@@ -303,7 +331,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       <section className="py-20 px-4 bg-gradient-to-br from-orange-600 to-orange-500 text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-white mb-2 text-h-section md:text-h-section leading-none">
+            <h2 className="text-white mb-2 heading-md md:heading-md leading-none font-normal">
               Proven Results
             </h2>
             <p className="text-orange-100 text-xl">
@@ -343,7 +371,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-orange-900 mb-4 text-h-section md:text-h-section leading-none">
+            <h2 className="text-orange-900 mb-4 heading-md md:heading-md leading-none font-normal">
               What Families Are Saying
             </h2>
             <p className="text-gray-600 text-xl">
@@ -376,7 +404,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             <Dog className="w-12 h-12" />
             <Dog className="w-10 h-10" />
           </div>
-          <h2 className="text-white mb-4 text-h-section md:text-h-section leading-none">
+          <h2 className="text-white mb-4 heading-md md:heading-md leading-none font-normal">
             Ready to Study with the Pack?
           </h2>
           <p className="text-orange-100 mb-8 text-lg">
@@ -385,7 +413,10 @@ export function HomePage({ onNavigate }: HomePageProps) {
           </p>
           <Button
             size="lg"
-            onClick={() => onNavigate("contact")}
+            onClick={() => {
+              onNavigate("about");
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
             className="bg-white text-orange-600 hover:bg-orange-50"
           >
             Schedule Your First Session

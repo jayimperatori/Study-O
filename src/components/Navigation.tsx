@@ -21,7 +21,10 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <button
-            onClick={() => onNavigate('home')}
+            onClick={() => {
+              onNavigate('home');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
             className="flex items-center gap-3 hover:opacity-80 transition-opacity group"
             aria-label="Go to Home"
           >
@@ -41,7 +44,12 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
               <Button
                 key={item.id}
                 variant={currentPage === item.id ? 'default' : 'ghost'}
-                onClick={() => onNavigate(item.id)}
+                onClick={() => {
+                  onNavigate(item.id);
+                  if (item.id === 'home') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
                 className={currentPage === item.id ? 'bg-orange-500 hover:bg-orange-600' : 'hover:bg-orange-50'}
                 aria-current={currentPage === item.id ? 'page' : undefined}
                 aria-label={`${item.label} page`}

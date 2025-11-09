@@ -13,22 +13,27 @@ export interface Newsletter {
 }
 
 function parseFrontmatter(raw: string): { meta: Record<string, string>; body: string } {
-  if (!raw || !raw.startsWith('---')) {
-    return { meta: {}, body: raw ?? '' };
+  if (!raw) return { meta: {}, body: '' };
+  // Remove UTF-8 BOM if present
+  let src = raw.replace(/^\uFEFF/, '');
+  if (!src.startsWith('---')) {
+    return { meta: {}, body: src };
   }
-  const end = raw.indexOf('\n---', 3);
-  if (end === -1) {
-    return { meta: {}, body: raw };
+  // Find the closing --- line (support \n or \r\n and optional spaces)
+  const closeIdx = src.search(/^\s*---\s*$/m);
+  if (closeIdx === -1) {
+    return { meta: {}, body: src };
   }
-  const header = raw.slice(3, end).trim();
-  const body = raw.slice(end + 4).replace(/^\s*/, '');
+  const header = src.slice(3, closeIdx).trim();
+  const after = src.slice(closeIdx).replace(/^\s*---\s*\r?\n/, '');
+  const body = after.replace(/^\s*/, '');
   const meta: Record<string, string> = {};
   for (const line of header.split(/\r?\n/)) {
     const idx = line.indexOf(':');
     if (idx !== -1) {
       const key = line.slice(0, idx).trim();
       const value = line.slice(idx + 1).trim().replace(/^"|"$/g, '');
-      meta[key] = value;
+      if (key) meta[key] = value;
     }
   }
   return { meta, body };

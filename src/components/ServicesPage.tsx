@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Check, BookOpen, GraduationCap, TrendingUp, Dog, Calendar, DollarSign, Clock } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
@@ -11,6 +11,17 @@ interface ServicesPageProps {
 }
 
 export function ServicesPage({ onNavigate }: ServicesPageProps) {
+  useEffect(() => {
+    const id = (window.location.hash || "").replace("#", "");
+    if (!id) return;
+    // Scroll after paint to ensure elements exist
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 0);
+  }, []);
   const services = [
     {
       icon: BookOpen,
@@ -74,7 +85,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
             <Dog className="w-12 h-12 text-orange-500" />
             <Dog className="w-10 h-10 text-orange-600" />
           </div>
-          <h1 className="text-orange-900 mb-6 text-5xl md:text-6xl leading-none">Our Services & Schedules 📚</h1>
+          <h1 className="text-orange-900 mb-6 text-5xl md:text-6xl leading-none">Our Services & Schedules</h1>
           <p className="text-gray-700 text-lg mb-8">
             The Study-O excels in supporting students to go to the college of their choice with scholarship money. 
             We realize that goal by offering comprehensive tutoring in standardized testing and assistance in 
@@ -183,8 +194,17 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="space-y-12">
-            {services.map((service, index) => (
-              <Card key={index} className="border-4 border-orange-200 hover:border-orange-400 transition-colors overflow-hidden">
+            {services.map((service, index) => {
+              const id =
+                service.title === "Academic Support"
+                  ? "academic"
+                  : service.title === "Standardized Testing"
+                  ? "testing"
+                  : service.title === "College Admissions"
+                  ? "admissions"
+                  : undefined;
+              return (
+              <Card id={id} key={index} className="border-4 border-orange-200 hover:border-orange-400 transition-colors overflow-hidden">
                 <CardHeader className="bg-gradient-to-r from-orange-50 to-yellow-50">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-4">
@@ -215,7 +235,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
                   </ul>
                 </CardContent>
               </Card>
-            ))}
+            )})}
           </div>
         </div>
       </section>
@@ -224,27 +244,27 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
       <section className="py-20 px-4 bg-gradient-to-br from-orange-600 to-orange-500 text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-white mb-2">Our Students' Average Test Scores 📊</h2>
+            <h2 className="text-white mb-2">Our Students' Average Test Scores</h2>
             <p className="text-orange-100">Well above national averages</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <Card className="bg-white/10 border-2 border-white/20 backdrop-blur">
               <CardContent className="pt-6">
-                <div className="text-6xl mb-2">27</div>
+                <div className="text-6xl mb-2 text-white">27</div>
                 <p className="text-orange-100 mb-2">First-Time ACT Average</p>
                 <p className="text-orange-200 text-sm">(National avg: 19.5)</p>
               </CardContent>
             </Card>
             <Card className="bg-white/10 border-2 border-white/20 backdrop-blur">
               <CardContent className="pt-6">
-                <div className="text-6xl mb-2">1350+</div>
+                <div className="text-6xl mb-2 text-white">1350+</div>
                 <p className="text-orange-100 mb-2">First-Time SAT Scores</p>
                 <p className="text-orange-200 text-sm">All above 1350 (National avg: 1050)</p>
               </CardContent>
             </Card>
             <Card className="bg-white/10 border-2 border-white/20 backdrop-blur">
               <CardContent className="pt-6">
-                <div className="text-6xl mb-2">100%</div>
+                <div className="text-6xl mb-2 text-white">100%</div>
                 <p className="text-orange-100 mb-2">SSAT Placement Rate</p>
                 <p className="text-orange-200 text-sm">All students placed successfully</p>
               </CardContent>

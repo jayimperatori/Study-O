@@ -36,13 +36,13 @@ export function ContactPage() {
     {
       icon: Phone,
       title: "Phone",
-      details: "(205) 555-8842",
+      details: "(404) 731-4524",
       subdetails: "Call or text anytime!"
     },
     {
       icon: Mail,
       title: "Email",
-      details: "contact@thestudyo.com",
+      details: "leahhughes@aol.com",
       subdetails: "We respond within 24 hours"
     },
     {
@@ -100,7 +100,7 @@ export function ContactPage() {
             <Dog className="w-12 h-12 text-orange-500" />
             <Dog className="w-10 h-10 text-orange-600" />
           </div>
-          <h1 className="text-orange-900 mb-6">Get In Touch 📬</h1>
+          <h1 className="text-orange-900 mb-6 heading-xl md:heading-xl leading-none">Get In Touch</h1>
           <p className="text-gray-700 text-lg">
             Ready to join our pack? We'd love to hear from you! Reach out to schedule your free consultation. 
             Edna, Vincent, and LONGston are excited to meet you! 🐾
@@ -348,9 +348,9 @@ export function ContactPage() {
           </div>
           <h2 className="text-white mb-4">We Can't Wait to Meet You! 🎓</h2>
           <p className="text-orange-100 mb-6 text-lg">
-            Join our pack of successful students. Oscar, Luna, and Max are ready to help you achieve your academic goals!
+            Join our pack of successful students. Edna, Vincent, and LONGston are ready to help you achieve your academic goals!
           </p>
-          <p className="text-white text-xl mb-2">📞 (205) 555-8842</p>
+          <p className="text-white text-xl mb-2">📞 (404) 731-4524</p>
           <p className="text-orange-100 text-sm">Sun-Wed • Noon-9pm</p>
         </div>
       </section>

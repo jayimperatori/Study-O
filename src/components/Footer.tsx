@@ -1,6 +1,11 @@
+import React from "react";
 import { Dog, Mail, Phone, MapPin, Clock } from "lucide-react";
 
-export function Footer() {
+interface FooterProps {
+  onNavigate?: (page: string) => void;
+}
+
+export function Footer({ onNavigate }: FooterProps) {
   return (
     <footer className="bg-gradient-to-br from-orange-900 to-orange-800 text-orange-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -25,10 +30,58 @@ export function Footer() {
           <div>
             <h3 className="mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm text-orange-100">
-              <li><a href="#" className="hover:text-white transition-colors">Academic Support</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Standardized Testing</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">College Admissions</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Meet Our Dogs</a></li>
+              <li>
+                <a
+                  href="#academic"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.hash = "#academic";
+                    onNavigate?.("services");
+                  }}
+                  className="hover:text-white transition-colors"
+                >
+                  Academic Support
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#testing"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.hash = "#testing";
+                    onNavigate?.("services");
+                  }}
+                  className="hover:text-white transition-colors"
+                >
+                  Standardized Testing
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#admissions"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.hash = "#admissions";
+                    onNavigate?.("services");
+                  }}
+                  className="hover:text-white transition-colors"
+                >
+                  College Admissions
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#dachshunds"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.hash = "#dachshunds";
+                    onNavigate?.("about");
+                  }}
+                  className="hover:text-white transition-colors"
+                >
+                  Meet Our Dogs
+                </a>
+              </li>
             </ul>
           </div>
 

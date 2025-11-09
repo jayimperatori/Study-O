@@ -33,7 +33,7 @@ export default function App() {
       <main className="flex-1">
         {renderPage()}
       </main>
-      <Footer />
+      <Footer onNavigate={setCurrentPage} />
     </div>
   );
 }
