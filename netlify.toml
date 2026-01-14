@@ -4,11 +4,10 @@
   status = 200
 
 [build]
-  base = "Study-O/Study-O"
   command = "npm run build"
   publish = "dist"
 
 [functions]
-  directory = "Study-O/Study-O/netlify/functions"
+  directory = "netlify/functions"
 
 
