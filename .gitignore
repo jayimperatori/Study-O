@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+.vite/
+.vite/deps/
+
+# Netlify
+.netlify/
+
+# PDFs / assets (optional – remove if you WANT them tracked)
+*.pdf
+
