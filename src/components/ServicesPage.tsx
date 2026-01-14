@@ -81,11 +81,11 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
       <section className="bg-gradient-to-br from-orange-50 via-yellow-50 to-orange-100 py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <Dog className="w-10 h-10 text-orange-600" />
-            <Dog className="w-12 h-12 text-orange-500" />
-            <Dog className="w-10 h-10 text-orange-600" />
+            <Dog className="w-10 h-10 text-plum-light" />
+            <Dog className="w-12 h-12 text-plum" />
+            <Dog className="w-10 h-10 text-plum-light" />
           </div>
-          <h1 className="text-orange-900 mb-6 text-5xl md:text-6xl leading-none">Our Services & Schedules</h1>
+          <h1 className="text-plum mb-6 text-5xl md:text-6xl leading-none">Our Services & Schedules</h1>
           <p className="text-gray-700 text-lg mb-8">
             The Study-O excels in supporting students to go to the college of their choice with scholarship money. 
             We realize that goal by offering comprehensive tutoring in standardized testing and assistance in 
@@ -123,7 +123,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-orange-900 mb-4">Packages & Pricing</h2>
+            <h2 className="text-plum mb-4 heading-md md:heading-md leading-none font-normal">Packages & Pricing</h2>
             <p className="text-gray-600">Choose the plan that fits your goals and timeline.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -183,7 +183,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
       <section className="py-8 px-4 bg-orange-100">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-gray-700">
-            <span className="text-orange-900">📅 Flexible Scheduling:</span> Weekly sessions allow students to move 
+            <span className="text-orange-900">Flexible Scheduling:</span> Weekly sessions allow students to move 
             more smoothly through the academic year, yet The Study-O practices great flexibility in meeting a 
             student's specific needs.
           </p>
@@ -244,7 +244,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
       <section className="py-20 px-4 bg-gradient-to-br from-orange-600 to-orange-500 text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-white mb-2">Our Students' Average Test Scores</h2>
+            <h2 className="text-white mb-2 heading-md md:heading-md leading-none font-normal">Our Students' Average Test Scores</h2>
             <p className="text-orange-100">Well above national averages</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 text-center">
@@ -286,8 +286,8 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
             </div>
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Dog className="w-8 h-8 text-orange-600" />
-                <h2 className="text-orange-900">The Dog Difference 🐾</h2>
+                <Dog className="w-8 h-8 text-plum" />
+                <h2 className="text-plum heading-md md:heading-md leading-none font-normal">The Dog Difference</h2>
               </div>
               <p className="text-gray-700 mb-6">
                 What makes The Study-O truly special? Our three dachshunds—Edna, Vincent, and LONGston—
@@ -318,7 +318,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-orange-900 mb-4">What to Expect 🎯</h2>
+            <h2 className="text-plum mb-4 heading-md md:heading-md leading-none font-normal">What to Expect</h2>
             <p className="text-gray-600">Your journey at The Study-O</p>
           </div>
           
@@ -360,12 +360,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-br from-orange-600 to-yellow-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Dog className="w-10 h-10" />
-            <Dog className="w-12 h-12" />
-            <Dog className="w-10 h-10" />
-          </div>
-          <h2 className="text-white mb-4">Ready to Get Started? 🚀</h2>
+          <h2 className="text-white mb-4 heading-md md:heading-md leading-none font-normal">Ready to Get Started?</h2>
           <p className="text-orange-100 mb-8 text-lg">
             Join our pack of successful students! Schedule your free consultation today.
           </p>
@@ -378,7 +373,7 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
           </Button>
           <div className="mt-6 space-y-2">
             <p className="text-orange-100">Package pricing available • Sun-Wed, Noon-9pm</p>
-            <p className="text-orange-200 text-sm">Edna, Vincent & LONGston can't wait to meet you! 🐾</p>
+            <p className="text-orange-200 text-sm">Edna, Vincent & LONGston can't wait to meet you!</p>
           </div>
         </div>
       </section>

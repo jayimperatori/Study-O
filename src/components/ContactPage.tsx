@@ -20,7 +20,7 @@ export function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thank you for reaching out! 🐾 We'll get back to you within 24 hours to schedule your free consultation. Edna, Vincent, and LONGston are excited to meet you!");
+    alert("Thank you for reaching out! We'll get back to you within 24 hours to schedule your free consultation. Edna, Vincent, and LONGston are excited to meet you!");
     setFormData({
       name: "",
       email: "",
@@ -96,14 +96,14 @@ export function ContactPage() {
       <section className="bg-gradient-to-br from-orange-50 via-yellow-50 to-orange-100 py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <Dog className="w-10 h-10 text-orange-600" />
-            <Dog className="w-12 h-12 text-orange-500" />
-            <Dog className="w-10 h-10 text-orange-600" />
+            <Dog className="w-10 h-10 text-plum-light" />
+            <Dog className="w-12 h-12 text-plum" />
+            <Dog className="w-10 h-10 text-plum-light" />
           </div>
-          <h1 className="text-orange-900 mb-6 heading-xl md:heading-xl leading-none">Get In Touch</h1>
+          <h1 className="text-plum mb-6 heading-xl md:heading-xl leading-none">Get In Touch</h1>
           <p className="text-gray-700 text-lg">
             Ready to join our pack? We'd love to hear from you! Reach out to schedule your free consultation. 
-            Edna, Vincent, and LONGston are excited to meet you! 🐾
+            Edna, Vincent, and LONGston are excited to meet you!
           </p>
         </div>
       </section>
@@ -114,7 +114,7 @@ export function ContactPage() {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div>
-              <h2 className="text-orange-900 mb-6">Send Us a Message 📝</h2>
+              <h2 className="text-plum mb-6 heading-md md:heading-md leading-none font-normal">Send Us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="name">Parent/Student Name *</Label>
@@ -197,7 +197,7 @@ export function ContactPage() {
                 </div>
 
                 <div>
-                  <Label htmlFor="dogPreference">How do you feel about dogs? 🐕</Label>
+                  <Label htmlFor="dogPreference">How do you feel about dogs?</Label>
                   <Select
                     value={formData.dogPreference}
                     onValueChange={(value) => setFormData({ ...formData, dogPreference: value })}
@@ -231,14 +231,14 @@ export function ContactPage() {
                   size="lg"
                   className="w-full bg-orange-500 hover:bg-orange-600"
                 >
-                  Send Message 📤
+                  Send Message
                 </Button>
               </form>
             </div>
 
             {/* Contact Info Cards */}
             <div>
-              <h2 className="text-orange-900 mb-6">Contact Information 📞</h2>
+              <h2 className="text-plum mb-6 heading-md md:heading-md leading-none font-normal">Contact Information</h2>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <Card key={index} className="border-2 border-orange-100 hover:border-orange-300 transition-colors">
@@ -263,7 +263,7 @@ export function ContactPage() {
                   <div className="flex items-start gap-3 mb-4">
                     <Calendar className="w-8 h-8 text-orange-700 flex-shrink-0 mt-1" />
                     <div>
-                      <h3 className="mb-2 text-orange-900">Schedule Your Free Consultation 🎉</h3>
+                      <h3 className="mb-2 text-orange-900">Schedule Your Free Consultation</h3>
                       <p className="text-gray-700 text-sm mb-3">
                         Not sure where to start? Book a free 30-minute consultation to discuss your academic goals. 
                         No pressure, just a friendly conversation about how we can help!
@@ -285,7 +285,7 @@ export function ContactPage() {
                 <CardContent className="pt-6 text-center">
                   <Heart className="w-8 h-8 text-orange-600 fill-orange-600 mx-auto mb-2" />
                   <p className="text-gray-700 text-sm">
-                    <span className="text-orange-900">🐾 Dog-Friendly Learning!</span><br />
+                    <span className="text-orange-900">Dog-Friendly Learning!</span><br />
                     Edna, Vincent & LONGston are actively involved in the tutoring process, creating a comfortable and stress-free environment!
                   </p>
                 </CardContent>
@@ -312,7 +312,7 @@ export function ContactPage() {
       {/* FAQ Section */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-orange-900 text-center mb-4">Frequently Asked Questions ❓</h2>
+          <h2 className="text-plum text-center mb-4 heading-md md:heading-md leading-none font-normal">Frequently Asked Questions</h2>
           <p className="text-gray-600 text-center mb-12">Everything you need to know about The Study-O</p>
           <div className="space-y-6">
             {faqs.map((faq, index) => (
@@ -346,11 +346,11 @@ export function ContactPage() {
             <Dog className="w-12 h-12" />
             <Dog className="w-10 h-10" />
           </div>
-          <h2 className="text-white mb-4">We Can't Wait to Meet You! 🎓</h2>
+          <h2 className="text-white mb-4">We Can't Wait to Meet You!</h2>
           <p className="text-orange-100 mb-6 text-lg">
             Join our pack of successful students. Edna, Vincent, and LONGston are ready to help you achieve your academic goals!
           </p>
-          <p className="text-white text-xl mb-2">📞 (404) 731-4524</p>
+          <p className="text-white text-xl mb-2">(404) 731-4524</p>
           <p className="text-orange-100 text-sm">Sun-Wed • Noon-9pm</p>
         </div>
       </section>

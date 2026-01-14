@@ -1,5 +1,7 @@
 import React from "react";
-import { Dog, Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
+
+const studyOLogo = new URL("../../Photos/StudyOLogo.png", import.meta.url).href;
 
 interface FooterProps {
   onNavigate?: (page: string) => void;
@@ -12,10 +14,12 @@ export function Footer({ onNavigate }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="flex items-end gap-0.5">
-                <Dog className="w-5 h-5" />
-                <Dog className="w-6 h-6 -ml-2" />
-                <Dog className="w-5 h-5 -ml-2" />
+              <div className="h-10 w-10 rounded-sm">
+                <img
+                  src={studyOLogo}
+                  alt="The Study-O logo"
+                  className="h-full w-full object-contain p-[2px]"
+                />
               </div>
               <span>The Study-O</span>
             </div>
@@ -23,7 +27,7 @@ export function Footer({ onNavigate }: FooterProps) {
               Where learning meets wagging tails! Empowering students with personalized tutoring, college prep, and three lovable dachshunds.
             </p>
             <p className="text-orange-200 text-xs italic">
-              🐾 Edna, Vincent & LONGston welcome you!
+              Edna, Vincent & LONGston welcome you!
             </p>
           </div>
 
@@ -82,6 +86,14 @@ export function Footer({ onNavigate }: FooterProps) {
                   Meet Our Dogs
                 </a>
               </li>
+              <li>
+                <button
+                  onClick={() => onNavigate?.("admin")}
+                  className="hover:text-white transition-colors underline underline-offset-4"
+                >
+                  Admin Site
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -109,7 +121,7 @@ export function Footer({ onNavigate }: FooterProps) {
         </div>
 
         <div className="border-t border-orange-700 mt-8 pt-8 text-center text-sm text-orange-200">
-          <p>&copy; {new Date().getFullYear()} The Study-O. All rights reserved. 🐕🐕🐕</p>
+          <p>&copy; {new Date().getFullYear()} The Study-O. All rights reserved.</p>
         </div>
       </div>
     </footer>

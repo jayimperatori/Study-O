@@ -6,6 +6,7 @@ import { ServicesPage } from "./components/ServicesPage";
 import { ContactPage } from "./components/ContactPage";
 import { NewslettersPage } from "./components/NewslettersPage";
 import { Footer } from "./components/Footer";
+import { AdminPage } from "./components/AdminPage";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -22,6 +23,8 @@ export default function App() {
         return <ServicesPage onNavigate={setCurrentPage} />;
       case "contact":
         return <ContactPage />;
+      case "admin":
+        return <AdminPage />
       default:
         return <HomePage onNavigate={setCurrentPage} />;
     }

@@ -1,6 +1,7 @@
 import React from "react";
-import { Dog } from "lucide-react";
 import { Button } from "./ui/button";
+
+const logoSrc = new URL("../assets/ef059911c1bd4739323d5a70da5ff1640e6224e2.png", import.meta.url).href;
 
 interface NavigationProps {
   currentPage: string;
@@ -28,10 +29,12 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
             className="flex items-center gap-3 hover:opacity-80 transition-opacity group"
             aria-label="Go to Home"
           >
-            <div className="flex items-end gap-1">
-              <Dog className="w-8 h-8 text-orange-600 group-hover:text-orange-700 transition-colors" />
-              <Dog className="w-10 h-10 text-orange-500 group-hover:text-orange-600 transition-colors -ml-3" />
-              <Dog className="w-8 h-8 text-orange-600 group-hover:text-orange-700 transition-colors -ml-3" />
+            <div className="h-10 w-10 rounded-sm">
+              <img
+                src={logoSrc}
+                alt="The Study-O logo"
+                className="h-full w-full object-contain p-[2px]"
+              />
             </div>
             <div className="flex flex-col items-start">
               <span className="text-orange-900 tracking-wide text-xl">The Study-O</span>

@@ -62,9 +62,9 @@ export function HomePage({ onNavigate }: HomePageProps) {
   const testimonials = [
     "You are a life-saver!",
     "You are such a big part of her life and what an amazing mentor you are — there are no words to adequately thank you. We are so grateful!",
-    "In all his years of having various tutors, he’s never come home or finished with one as happy and as excited as from his session with you… and if that wasn’t enough, he loved your cookies 😭. Thanks again!",
+    "In all his years of having various tutors, he’s never come home or finished with one as happy and as excited as from his session with you… and if that wasn’t enough, he loved your cookies. Thanks again!",
     "There is truly nobody better he enjoyed working with than you, so THANK YOU!",
-    "Just had to tell you — J just shared his essay and autobiography — thank you for helping him put into words exactly what makes him special. 🥲",
+    "Just had to tell you — J just shared his essay and autobiography — thank you for helping him put into words exactly what makes him special.",
     "You have made tutoring something I look forward to. I can’t tell you how much I’ve learned from you academically and personally. I have learned to trust and believe in myself. I cannot thank you enough for teaching me that.",
   ];
 
@@ -76,11 +76,11 @@ export function HomePage({ onNavigate }: HomePageProps) {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Dog className="w-8 h-8 text-orange-600" />
-                <Dog className="w-8 h-8 text-orange-500" />
-                <Dog className="w-8 h-8 text-orange-600" />
+                <Dog className="w-8 h-8 text-plum-light" />
+                <Dog className="w-8 h-8 text-plum" />
+                <Dog className="w-8 h-8 text-plum-light" />
               </div>
-              <h1 className="text-orange-900 mb-6 text-5xl md:text-6xl leading-none">
+              <h1 className="text-plum mb-6 text-5xl md:text-6xl leading-none">
                 Welcome to The Study-O
               </h1>
               <p className="text-gray-700 mb-4 text-lg">
@@ -163,7 +163,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-orange-900 mb-4 heading-md md:heading-md leading-none font-normal">
+            <h2 className="text-plum mb-4 heading-md md:heading-md leading-none font-normal">
               What Makes Us Special
             </h2>
           </div>
@@ -195,13 +195,9 @@ export function HomePage({ onNavigate }: HomePageProps) {
       <section className="py-20 px-4 bg-gradient-to-br from-yellow-50 to-orange-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Heart className="w-6 h-6 text-orange-600 fill-orange-600" />
-              <h2 className="text-orange-900 heading-md md:heading-md leading-none font-normal">
-                Meet Our Dachshunds
-              </h2>
-              <Heart className="w-6 h-6 text-orange-600 fill-orange-600" />
-            </div>
+            <h2 className="text-plum mb-4 heading-md md:heading-md leading-none font-normal">
+              Meet Our Dachshunds
+            </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -261,7 +257,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-orange-900 mb-6 heading-lg md:heading-lg leading-none font-normal">
+              <h2 className="text-plum mb-6 heading-lg md:heading-lg leading-none font-normal">
                 A Cozy, Home-Like Learning Space
               </h2>
               <p className="text-gray-700 mb-4">
@@ -371,7 +367,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
       <section className="py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-orange-900 mb-4 heading-md md:heading-md leading-none font-normal">
+            <h2 className="text-plum mb-4 heading-md md:heading-md leading-none font-normal">
               What Families Are Saying
             </h2>
             <p className="text-gray-600 text-xl">

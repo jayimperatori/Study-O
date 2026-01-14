@@ -2114,6 +2114,43 @@ html {
   }
 }
 
+/* Plum accent text utility (for selective subtitles) */
+.text-plum {
+  color: #7B3B71;
+}
+
+/* Lighter plum variant for two-tone icons */
+.text-plum-light {
+  color: #C57AB7;
+}
+
+/* Scoped newsletter content typography */
+.prose-newsletter h1 {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin-block-end: 0.5rem;
+}
+@media (width >= 48rem) {
+  .prose-newsletter h1 {
+    font-size: 1.5rem;
+  }
+}
+.prose-newsletter h2 {
+  font-size: 1.125rem;
+  line-height: 1.25;
+  margin-block-end: 0.5rem;
+}
+@media (width >= 48rem) {
+  .prose-newsletter h2 {
+    font-size: 1.25rem;
+  }
+}
+.prose-newsletter h3 {
+  font-size: 1rem;
+  line-height: 1.3;
+  margin-block-end: 0.5rem;
+}
+
 @property --tw-space-y-reverse {
   syntax: "*";
   inherits: false;
