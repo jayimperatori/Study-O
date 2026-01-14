@@ -1,7 +1,8 @@
 import React from "react";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
-const studyOLogo = new URL("../../Photos/StudyOLogo.png", import.meta.url).href;
+// Use the same public StudyOLogo image as the header
+const studyOLogo = "/logo.png";
 
 interface FooterProps {
   onNavigate?: (page: string) => void;

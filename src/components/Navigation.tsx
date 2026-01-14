@@ -1,7 +1,8 @@
 import React from "react";
 import { Button } from "./ui/button";
 
-const logoSrc = new URL("../assets/ef059911c1bd4739323d5a70da5ff1640e6224e2.png", import.meta.url).href;
+// Use the public logo, which we’ve set to the StudyOLogo image
+const logoSrc = "/logo.png";
 
 interface NavigationProps {
   currentPage: string;
