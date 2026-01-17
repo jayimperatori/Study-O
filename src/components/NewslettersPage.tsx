@@ -63,7 +63,7 @@ export function NewslettersPage() {
 
       <section className="bg-gradient-to-br from-orange-50 via-yellow-50 to-orange-100 py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-plum mb-4 text-5xl leading-none">Leah's Newsletters</h1>
+          <h1 className="text-plum mb-4 text-5xl leading-none">Professor's Newsletters</h1>
           <p className="text-gray-700 text-lg">Weekly updates, tips, and announcements from The Study-O.</p>
         </div>
       </section>
@@ -110,21 +110,7 @@ export function NewslettersPage() {
                     </div>
                   )}
 
-                  {n.attachments && n.attachments.length > 0 && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {n.attachments.map((a, i) => (
-                        <a
-                          key={i}
-                          href={a.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-orange-300 text-orange-700 hover:bg-orange-50 text-sm"
-                        >
-                          {a.type.toUpperCase()} • {a.filename}
-                        </a>
-                      ))}
-                    </div>
-                  )}
+                  {/* Attachments are still stored in the backend but no longer need to be downloaded from the public page */}
                 </CardContent>
               </Card>
             );
