@@ -62,12 +62,11 @@ export function AdminPage() {
     setStatus("");
     const trimmedTitle = title.trim() || "Untitled";
     try {
-      if (!docxFile) {
-        setStatus("Please attach a Word document (DOCX) before uploading.");
-        return;
+      const files: { name: string; type: string; dataUrl: string }[] = [];
+      if (docxFile) {
+        files.push({ name: docxFile.name, type: docxFile.type, dataUrl: await toDataUrl(docxFile) });
       }
 
-      const files = [{ name: docxFile.name, type: docxFile.type, dataUrl: await toDataUrl(docxFile) }];
       const resp = await fetch("/.netlify/functions/create-newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
