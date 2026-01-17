@@ -204,17 +204,17 @@ export function HomePage({ onNavigate }: HomePageProps) {
             {[
               {
                 name: "Edna",
-                role: "The TSA",
-                personality:
-                  "Alert, attentive, ensures everything runs smoothly",
-                specialty: "Provides structure and routine to study time",
-              },
-              {
-                name: "Vincent",
                 role: "The Coach",
                 personality:
                   "Encouraging, motivating, always ready to cheer you on",
                 specialty: "Keeps students motivated during long study sessions",
+              },
+              {
+                name: "Vincent",
+                role: "The TSA",
+                personality:
+                  "Alert, attentive, ensures everything runs smoothly",
+                specialty: "Provides structure and routine to study time",
               },
               {
                 name: "LONGston",

@@ -50,9 +50,7 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
                 variant={currentPage === item.id ? 'default' : 'ghost'}
                 onClick={() => {
                   onNavigate(item.id);
-                  if (item.id === 'home') {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
                 className={currentPage === item.id ? 'bg-orange-500 hover:bg-orange-600' : 'hover:bg-orange-50'}
                 aria-current={currentPage === item.id ? 'page' : undefined}

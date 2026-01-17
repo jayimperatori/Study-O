@@ -18,7 +18,10 @@ export function AboutPage() {
     setTimeout(() => {
       const el = document.getElementById(id);
       if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        const rect = el.getBoundingClientRect();
+        const headerOffset = 96; // account for sticky navigation height
+        const targetY = window.scrollY + rect.top - headerOffset;
+        window.scrollTo({ top: targetY, behavior: "smooth" });
       }
     }, 0);
   }, []);
@@ -53,21 +56,21 @@ export function AboutPage() {
   const dachshunds = [
     {
       name: "Edna",
-      role: "The TSA (Test Security Administrator)",
-      personality: "Alert • Organized • Reliable",
-      fact: "Edna takes her role very seriously. She ensures that study sessions stay on track and that the environment remains focused and productive. Like a coach keeping everyone organized, she makes sure students have what they need and helps maintain the structure necessary for successful learning. Her calm, attentive presence helps students feel secure and ready to tackle any academic challenge.",
-      favoriteSpot: "By the desk during study sessions",
-      superpower: "Creates structure and routine in study sessions",
-      quirk: "Always knows when it's time to start and end sessions"
-    },
-    {
-      name: "Vincent",
       role: "The Coach",
       personality: "Encouraging • Motivating • Inspiring",
-      fact: "Vincent is the motivational speaker of the group. He has an uncanny ability to sense when a student needs a boost of confidence. Whether you're tackling a difficult math problem or writing a college essay, he'll be right there, encouraging you every step of the way. His presence reminds students that they can accomplish anything they set their minds to!",
+      fact: "Edna is the motivational speaker of the group. She has an uncanny ability to sense when a student needs a boost of confidence. Whether you're tackling a difficult math problem or writing a college essay, she'll be right there, encouraging you every step of the way. Her presence reminds students that they can accomplish anything they set their minds to!",
       favoriteSpot: "Near the entrance, keeping watch",
       superpower: "Motivates students to push through challenges",
       quirk: "Does a little dance when students complete assignments"
+    },
+    {
+      name: "Vincent",
+      role: "The TSA (Test Security Administrator)",
+      personality: "Alert • Organized • Reliable",
+      fact: "Vincent takes his role very seriously. He ensures that study sessions stay on track and that the environment remains focused and productive. Like a coach keeping everyone organized, he makes sure students have what they need and helps maintain the structure necessary for successful learning. His calm, attentive presence helps students feel secure and ready to tackle any academic challenge.",
+      favoriteSpot: "By the desk during study sessions",
+      superpower: "Creates structure and routine in study sessions",
+      quirk: "Always knows when it's time to start and end sessions"
     },
     {
       name: "LONGston",

@@ -18,7 +18,10 @@ export function ServicesPage({ onNavigate }: ServicesPageProps) {
     setTimeout(() => {
       const el = document.getElementById(id);
       if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        const rect = el.getBoundingClientRect();
+        const headerOffset = 96; // account for sticky nav height
+        const targetY = window.scrollY + rect.top - headerOffset;
+        window.scrollTo({ top: targetY, behavior: "smooth" });
       }
     }, 0);
   }, []);
