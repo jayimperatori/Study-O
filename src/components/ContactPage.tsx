@@ -62,7 +62,7 @@ export function ContactPage() {
   const faqs = [
     {
       question: "What are your rates and do you offer payment plans?",
-      answer: "Our Fall 2024 pricing is $140/hour for all services (Academic Support, Standardized Testing, and College Admissions). We offer flexible payment plans and package discounts for students committing to multiple weekly sessions. Contact us to discuss options that work for your budget."
+      answer: "We offer package-based pricing for our services. Academic Support and College Admissions are $960 per month for four 60-minute one-on-one sessions. The Testing Package is $1,920 per month for eight 60-minute one-on-one sessions. We’re happy to discuss scheduling and payment options that work for your family—just reach out through the contact form."
     },
     {
       question: "What are your hours and how do I schedule?",
