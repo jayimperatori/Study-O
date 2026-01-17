@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { saveLocalNewsletter } from "../newsletters/localNewsletters";
-import type { Newsletter } from "../newsletters/loadNewsletters";
 
 export function AdminPage() {
   const [authed, setAuthed] = useState(false);
@@ -64,60 +62,45 @@ export function AdminPage() {
     setStatus("");
     const trimmedTitle = title.trim() || "Untitled";
     try {
-      // Try cloud function first (if configured on Netlify)
-      try {
-        const files = [];
-        if (docxFile) files.push({ name: docxFile.name, type: docxFile.type, dataUrl: await toDataUrl(docxFile) });
-        const resp = await fetch("/.netlify/functions/create-newsletter", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ title: trimmedTitle, content, files }),
-        });
-        if (resp.ok) {
-          setTitle("");
-          setContent("");
-          setDocxFile(null);
-          setStatus("Uploaded to backend. It will appear in Newsletters.");
-          window.scrollTo({ top: 0, behavior: "smooth" });
-          // refresh cloud list
-          try {
-            const res = await fetch("/.netlify/functions/list-newsletters");
-            const json = res.ok ? await res.json() : { items: [] };
-            const items = Array.isArray(json.items)
-              ? json.items.map((n: any) => ({
-                  id: n.id,
-                  title: n.title,
-                  date: n.created_at || n.date,
-                }))
-              : [];
-            setCloudNewsletters(items);
-          } catch {
-            // ignore
-          }
-          return;
-        }
-      } catch {
-        // fall through to local save
+      if (!docxFile) {
+        setStatus("Please attach a Word document (DOCX) before uploading.");
+        return;
       }
 
-      const slug = `local-${Date.now()}`;
-      const attachments: NonNullable<Newsletter["attachments"]> = [];
-      if (docxFile) {
-        attachments.push({ url: await toDataUrl(docxFile), filename: docxFile.name, type: "docx" });
+      const files = [{ name: docxFile.name, type: docxFile.type, dataUrl: await toDataUrl(docxFile) }];
+      const resp = await fetch("/.netlify/functions/create-newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: trimmedTitle, content, files }),
+      });
+
+      if (!resp.ok) {
+        const text = await resp.text();
+        setStatus(`Backend error: ${text || resp.status}`);
+        return;
       }
-      const item: Newsletter = {
-        slug,
-        title: trimmedTitle,
-        date: new Date().toISOString(),
-        content,
-        attachments: attachments.length ? attachments : undefined,
-      };
-      await saveLocalNewsletter(item);
+
       setTitle("");
       setContent("");
       setDocxFile(null);
-      setStatus("Saved. It will appear in Newsletters on this browser.");
+      setStatus("Uploaded to backend. It will appear in Newsletters.");
       window.scrollTo({ top: 0, behavior: "smooth" });
+
+      // refresh cloud list
+      try {
+        const res = await fetch("/.netlify/functions/list-newsletters");
+        const json = res.ok ? await res.json() : { items: [] };
+        const items = Array.isArray(json.items)
+          ? json.items.map((n: any) => ({
+              id: n.id,
+              title: n.title,
+              date: n.created_at || n.date,
+            }))
+          : [];
+        setCloudNewsletters(items);
+      } catch {
+        // ignore
+      }
     } catch (err: any) {
       setStatus(err?.message || "Save failed.");
     }
