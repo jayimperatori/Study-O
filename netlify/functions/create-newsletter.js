@@ -34,7 +34,7 @@ exports.handler = async (event) => {
       });
       if (uploadErr) {
         console.error('upload error', uploadErr);
-        return { statusCode: 500, body: 'Upload failed' };
+        return { statusCode: 500, body: `Upload failed: ${uploadErr.message || uploadErr.error || 'Unknown error'}` };
       }
       const { data: signed, error: signErr } = await supabase
         .storage
@@ -55,13 +55,13 @@ exports.handler = async (event) => {
     });
     if (insertErr) {
       console.error('insert error', insertErr);
-      return { statusCode: 500, body: 'Database insert failed' };
+      return { statusCode: 500, body: `Database insert failed: ${insertErr.message || insertErr.error || 'Unknown error'}` };
     }
 
     return { statusCode: 200, body: JSON.stringify({ ok: true }) };
   } catch (e) {
     console.error(e);
-    return { statusCode: 500, body: 'Unexpected error' };
+    return { statusCode: 500, body: `Unexpected error: ${e.message || 'Unknown error'}` };
   }
 };
 
