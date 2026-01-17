@@ -5,8 +5,10 @@ import { Dog, Heart, Award, Users, BookOpen } from "lucide-react";
 const storyImage = new URL("../assets/Story.jpeg", import.meta.url).href;
 const spaceImage2 = new URL("../assets/ef059911c1bd4739323d5a70da5ff1640e6224e2.png", import.meta.url).href;
 const threeDogs = new URL("../assets/3Dogs.jpeg", import.meta.url).href;
-const leahHeadshot = new URL("../assets/Leah.jpg", import.meta.url).href;
+const leahHeadshot = new URL("../../Photos/People/Leah.jpeg", import.meta.url).href;
 const julieHeadshot = new URL("../assets/Julie.jpg", import.meta.url).href;
+const colbyHeadshot = new URL("../../Photos/People/Colby.jpeg", import.meta.url).href;
+const samanthaHeadshot = new URL("../../Photos/People/Samantha.jpeg", import.meta.url).href;
 const ednaImg = new URL("../assets/Edna.jpeg", import.meta.url).href;
 const vincentImg = new URL("../assets/Vincent.jpeg", import.meta.url).href;
 const longstonImg = new URL("../assets/LONGston.jpeg", import.meta.url).href;
@@ -42,14 +44,14 @@ export function AboutPage() {
     {
       name: "Colby Fernandez",
       role: "Team Member",
-      bio: "Photo not yet available. Info coming soon.",
-      image: ""
+      bio: "",
+      image: colbyHeadshot
     },
     {
-      name: "New Team Member",
+      name: "Samantha Martinez Castillo",
       role: "Team Member",
-      bio: "Photo not yet available. Info coming soon.",
-      image: ""
+      bio: "",
+      image: samanthaHeadshot
     }
   ];
 
