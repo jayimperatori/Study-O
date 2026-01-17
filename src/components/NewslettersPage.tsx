@@ -1,8 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
-import { getNewsletters } from "../newsletters/loadNewsletters";
-import { listLocalNewsletters } from "../newsletters/localNewsletters";
 import { Calendar } from "lucide-react";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
@@ -10,31 +8,31 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 const leahHero = new URL("../assets/LeahWithDogs.jpeg", import.meta.url).href;
 
 export function NewslettersPage() {
-  const localStatic = useMemo(() => getNewsletters(), []);
-  const localCustom = useMemo(() => listLocalNewsletters(), []);
   const [cloud, setCloud] = useState<any[]>([]);
   useEffect(() => {
     // try to load from Netlify function; ignore errors if backend not configured
     fetch("/.netlify/functions/list-newsletters")
       .then(res => res.ok ? res.json() : Promise.resolve({ items: [] }))
-      .then((json) => setCloud(Array.isArray(json.items) ? json.items.map((n: any) => ({
-        slug: n.id || n.slug,
-        title: n.title,
-        date: n.created_at || n.date || new Date().toISOString(),
-        content: n.content || "",
-        attachments: n.attachments || [],
-      })) : []))
+      .then((json) =>
+        setCloud(
+          Array.isArray(json.items)
+            ? json.items.map((n: any) => ({
+                id: n.id,
+                slug: n.id ?? n.slug,
+                title: n.title,
+                date: n.created_at || n.date || new Date().toISOString(),
+                content: n.content || "",
+                attachments: n.attachments || [],
+              }))
+            : []
+        )
+      )
       .catch(() => setCloud([]));
   }, []);
 
   const newsletters = useMemo(() => {
-    const map = new Map<string, any>();
-    [...cloud, ...localCustom, ...localStatic].forEach(n => {
-      // remote first priority
-      if (!map.has(n.slug)) map.set(n.slug, n);
-    });
-    return Array.from(map.values()).sort((a, b) => b.date.localeCompare(a.date));
-  }, [cloud, localCustom, localStatic]);
+    return [...cloud].sort((a, b) => String(b.date).localeCompare(String(a.date)));
+  }, [cloud]);
   const [openSlug, setOpenSlug] = useState<string | null>(null);
 
   const getExcerpt = (markdown: string, max = 180) => {
